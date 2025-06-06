@@ -1,0 +1,30 @@
+# Guess the weather hourly
+# [weather]
+# command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
+# interval=3600
+# color=#A4C2F4
+
+[volume-pipewire]
+command=/home/ilya/i3blocks-contrib/volume-pipewire/volume-pipewire
+interval=once
+signal=1
+
+[brightness]
+command=/home/ilya/i3blocks-contrib/brightness/bin/brightness -a /sys/class/backlight/amdgpu_bl1/device/amdgpu_bl1/actual_brightness -m /sys/class/backlight/amdgpu_bl1/device/amdgpu_bl1/max_brightness
+interval=persist
+
+# # Query my default IP address only on startup
+# [ip]
+# command=hostname -i | awk '{ print "IP:" $1 }'
+# interval=once
+# color=#91E78B
+
+[battery]
+command=/home/ilya/i3blocks-contrib/battery/battery
+interval=30
+LABEL=BAT 
+
+# Update time every 5 seconds
+[time]
+command=date +%T
+interval=5
