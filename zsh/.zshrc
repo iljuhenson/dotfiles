@@ -103,6 +103,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 bindkey -r "^P"
-path+=('/home/ilya/nvim-11/bin')
+path+=('/home/ilya/nvim-build-11-2/bin')
 
 xinput set-prop "SteelSeries SteelSeries Rival 5" "libinput Natural Scrolling Enabled" 0

@@ -12,10 +12,11 @@ return {
       'hrsh7th/cmp-vsnip',
       'hrsh7th/vim-vsnip',
       'nvim-java/nvim-java',
+      'mfussenegger/nvim-jdtls',
     },
 
     config = function()
-      require('java').setup()
+      -- require('java').setup()
       require("mason").setup()
       require("mason-lspconfig").setup({
         automatic_installation = true
@@ -76,7 +77,11 @@ return {
       require("lspconfig").jdtls.setup {
         capabilities = capabilities,
       }
-      require("lspconfig").sqlls.setup {
+      -- require("lspconfig").sqlls.setup {
+      --   capabilities = capabilities,
+      --   filetypes = { "sql" },
+      -- }
+      require("lspconfig").postgrestools.setup {
         capabilities = capabilities,
         filetypes = { "sql" },
       }
