@@ -76,10 +76,13 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
+
+bindsym $mod+Right workspace next
+bindsym $mod+Left workspace prev
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -204,5 +207,6 @@ exec --no-startup-id firefox
 
 exec --no-startup-id picom --config ~/.config/picom.conf
 
-exec "setxkbmap -layout pl,ru"
-exec "setxkbmap -option 'grp:win_space_toggle'"
+exec_always --no-startup-id "setxkbmap -layout \"pl,ru,ca\" -variant \",,fr\" && setxkbmap -option \"grp:win_space_toggle\""
+
+exec --no-startup-id feh --bg-max ~/.wallpaper/fight-club.jpg 

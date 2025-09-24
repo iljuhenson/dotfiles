@@ -24,7 +24,12 @@ command=/home/ilya/i3blocks-contrib/battery/battery
 interval=30
 LABEL=BAT 
 
+[kbdd_layout]
+command=/home/ilya/i3blocks-contrib/kbdd_layout/kbdd_layout
+interval=persist
+
 # Update time every 5 seconds
 [time]
 command=date +%T
 interval=5
+

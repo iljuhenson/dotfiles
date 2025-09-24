@@ -104,5 +104,16 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 bindkey -r "^P"
 path+=('/home/ilya/nvim-build-11-2/bin')
+path+=('/home/ilya/bin')
 
 xinput set-prop "SteelSeries SteelSeries Rival 5" "libinput Natural Scrolling Enabled" 0
+xinput set-prop "ELAN050B:00 04F3:31C3 Touchpad" "libinput Natural Scrolling Enabled" 1
+
+export EDITOR="/home/ilya/nvim-build-11-2/bin/nvim"
+export RUSTFLAGS="-Cinstrument-coverage"
+export LLVM_PROFILE_FILE="target/coverage/%p-%m.profraw"
+
+# export CARGO_INCREMENTAL=0
+# export RUSTFLAGS="-Zprofile -Ccodegen-units=1 -Copt-level=0 -Clink-dead-code -Coverflow-checks=off -Zpanic_abort_tests -Cpanic=abort"
+# export RUSTDOCFLAGS="-Cpanic=abort"
+# export RUSTC_BOOTSTRAP=1

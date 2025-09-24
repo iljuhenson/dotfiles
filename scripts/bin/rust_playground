@@ -1,0 +1,12 @@
+#!/bin/bash
+
+mkdir -p ~/rust-playground/
+
+cd ~/rust-playground/
+
+rm -r ./*
+
+cargo init --lib
+
+nvim .
+

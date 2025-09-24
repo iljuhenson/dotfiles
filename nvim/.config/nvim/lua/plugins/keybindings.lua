@@ -35,6 +35,12 @@ return {
         mode = { "v", 'n' },
         desc = "Paste from clipboard",
       },
+      {
+        "<leader>c",
+        '<cmd>Coverage<CR>',
+        mode = { 'n' },
+        desc = "Load Coverage Report",
+      },
     },
   }
 }

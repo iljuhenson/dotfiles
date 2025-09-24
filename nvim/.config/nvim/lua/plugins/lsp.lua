@@ -87,28 +87,13 @@ return {
       }
       require("lspconfig").rust_analyzer.setup {
         -- Server-specific settings. See `:help lspconfig-setup`
-        settings = {
-          ['rust-analyzer'] = {},
-        },
+        -- settings = {
+        --   ['rust-analyzer'] = {},
+        -- },
         capabilities = capabilities,
       }
 
-      vim.opt.signcolumn = "yes"
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = "ruby",
-        callback = function()
-          vim.lsp.start {
-            name = "rubocop",
-            cmd = { "rubocop", "--lsp" },
-          }
-        end,
-      })
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        pattern = "*.rb",
-        callback = function()
-          vim.lsp.buf.format()
-        end,
-      })
+      vim.diagnostic.config({ virtual_text = true })
 
       vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
       vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
@@ -123,9 +108,13 @@ return {
       vim.keymap.set('n', '<leader>af', '<cmd>lua vim.lsp.buf.code_action()<CR>')
       vim.keymap.set('n', '<leader>ee', '<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
       vim.keymap.set('n', '<leader>ar', '<cmd>lua vim.lsp.buf.rename()<CR>')
-      vim.keymap.set('n', '<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+      vim.keymap.set('n', '<leader>=', '<cmd>lua vim.lsp.buf.format()<CR>')
       vim.keymap.set('n', '<leader>ai', '<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
       vim.keymap.set('n', '<leader>ao', '<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
+      vim.api.nvim_set_keymap(
+        'n', '<leader>d', ':lua vim.diagnostic.open_float()<CR>',
+        { noremap = true, silent = true }
+      )
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -137,6 +126,10 @@ return {
           --   -- Enable auto-completion
           --   vim.lsp.completion.enable(true, client.id, args.buf, {autotrigger = true})
           -- end
+          -- if client.resolved_capabilities.document_formatting then
+          --   vim.cmd("au BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+          -- end
+
           if client:supports_method('textDocument/formatting') then
             -- Format the current buffer on save
             vim.api.nvim_create_autocmd('BufWritePre', {
