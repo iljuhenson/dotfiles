@@ -105,6 +105,8 @@ source $ZSH/oh-my-zsh.sh
 bindkey -r "^P"
 path+=('/home/ilya/nvim-build-11-2/bin')
 path+=('/home/ilya/bin')
+path+=('/home/ilya/installed/intellij_idea/bin')
+
 
 xinput set-prop "SteelSeries SteelSeries Rival 5" "libinput Natural Scrolling Enabled" 0
 xinput set-prop "ELAN050B:00 04F3:31C3 Touchpad" "libinput Natural Scrolling Enabled" 1
@@ -112,8 +114,15 @@ xinput set-prop "ELAN050B:00 04F3:31C3 Touchpad" "libinput Natural Scrolling Ena
 export EDITOR="/home/ilya/nvim-build-11-2/bin/nvim"
 export RUSTFLAGS="-Cinstrument-coverage"
 export LLVM_PROFILE_FILE="target/coverage/%p-%m.profraw"
+source ~/.openapikey
 
 # export CARGO_INCREMENTAL=0
 # export RUSTFLAGS="-Zprofile -Ccodegen-units=1 -Copt-level=0 -Clink-dead-code -Coverflow-checks=off -Zpanic_abort_tests -Cpanic=abort"
 # export RUSTDOCFLAGS="-Cpanic=abort"
 # export RUSTC_BOOTSTRAP=1
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+alias newvim="NVIM_APPNAME=newvim nvim"

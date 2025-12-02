@@ -12,6 +12,10 @@ local config = wezterm.config_builder()
 -- Disabling character combining
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 -- config.window_background_opacity = 0.8
+--
+config.font_size = 19
+config.hide_tab_bar_if_only_one_tab = true
+
 
 -- and finally, return the configuration to wezterm
 return config
