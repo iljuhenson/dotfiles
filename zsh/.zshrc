@@ -126,3 +126,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias newvim="NVIM_APPNAME=newvim nvim"
+
+export GODOT4_BIN="/home/ilya/bin"
+export PATH="$HOME/.local/bin:$PATH"
